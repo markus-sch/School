@@ -50,8 +50,9 @@ public class Student {
      * The school is going to receive the funds.
      * @param fees that the stundet pays
      */
-    public void updateFeesPaid( int fees) {
+    public void payFees(int fees) {
         feesPaid += fees;
+        School.updateTotalMoneyEarned(feesPaid);
 
     }
 
@@ -61,22 +62,34 @@ public class Student {
      */
 
     public int getId() {
+
         return id;
     }
 
     public String getName() {
+
         return name;
     }
 
     public int getGrade() {
+
         return grade;
     }
 
     public int getFeesPaid() {
+
         return feesPaid;
     }
 
     public int getFeesTotal() {
+
         return feesTotal;
+    }
+
+    /**
+     * @return the remaining fees.
+     */
+    public int getRemainingFees() {
+         return feesTotal - feesPaid;
     }
 }
